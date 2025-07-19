@@ -2,12 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone Repo') {
-            steps {
-                git 'https://github.com/git-srinivas05/devops-snake-game.git'
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 script {
@@ -24,4 +18,3 @@ pipeline {
         }
     }
 }
-
