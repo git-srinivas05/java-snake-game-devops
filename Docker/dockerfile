@@ -1,0 +1,15 @@
+# Use OpenJDK 17 as base image
+FROM openjdk:17
+
+# Set working directory inside container
+WORKDIR /app
+
+# Copy source code into container
+COPY ../src/snake-game/com /app/com
+
+# Compile Java files
+RUN javac com/snakegame/*.java
+
+# Run the game
+CMD ["java", "com.snakegame.SnakeGame"]
+
