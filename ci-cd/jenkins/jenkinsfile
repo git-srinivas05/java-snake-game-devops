@@ -5,7 +5,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    docker.build("snake-game-java", "-f Docker/dockerfile.")
+                    docker.build("snake-game-java", "-f Docker/dockerfile .")
                 }
             }
         }
