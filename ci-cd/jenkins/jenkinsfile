@@ -5,14 +5,14 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    docker.build("snake-game-java")
+                    docker.build("snake-game-java", "-f docker/Dockerfile .")
                 }
             }
         }
 
         stage('Run Container') {
             steps {
-                echo 'Launching Snake Game container...'
+                echo 'Running Snake Game container...'
                 sh 'docker run --rm snake-game-java'
             }
         }
