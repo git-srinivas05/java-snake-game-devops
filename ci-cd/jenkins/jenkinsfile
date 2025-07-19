@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone Repo') {
+            steps {
+                git 'https://github.com/git-srinivas05/devops-snake-game.git'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    docker.build("snake-game-java", "-f docker/Dockerfile .")
+                }
+            }
+        }
+
+        stage('Run Container') {
+            steps {
+                echo 'Running Snake Game container...'
+                sh 'docker run --rm snake-game-java'
+            }
+        }
+    }
+}
+
