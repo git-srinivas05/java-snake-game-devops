@@ -5,7 +5,7 @@ FROM openjdk:17
 WORKDIR /app .
 
 # Copy source code into container
-COPY ../src/snake-game/com /app/com
+COPY src/snake-game/com /app/com
 
 # Compile Java files
 RUN javac com/snakegame/*.java
